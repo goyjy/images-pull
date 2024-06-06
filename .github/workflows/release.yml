@@ -33,7 +33,7 @@ jobs:
       - name: Save Docker Images
         run: docker pull registry.k8s.io/coredns/coredns:v1.11.3;docker save registry.k8s.io/coredns/coredns:v1.11.3 -o images-pull-coredns-amd64.tar.gz
       - name: Release
-        uses: goyjy/images-pull@v1
+        uses: goyjy/images-pull
         with:
           files: images-pull-coredns-amd64.tar.gz
         env:
