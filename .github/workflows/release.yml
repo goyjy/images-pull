@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Save Docker Images
-        run: wget https://codeload.github.com/coredns/coredns/tar.gz/refs/tags/v1.11.3;tar -zxf coredns-1.11.3.tar.gz;cd coredns-1.11.3;make VERSION=1.11.3 DOCKER=registry.k8s.io/coredns -f Makefile.docker release docker-build;docker save -o images-pull-coredns-amd64.tar.gz registry.k8s.io/coredns/coredns:v1.11.3
+        run: wget https://codeload.github.com/coredns/coredns/tar.gz/refs/tags/v1.11.3;tar -zxf v1.11.3.tar.gz;cd v1.11.3;make VERSION=1.11.3 DOCKER=registry.k8s.io/coredns -f Makefile.docker release docker-build;docker save -o images-pull-coredns-amd64.tar.gz registry.k8s.io/coredns/coredns:v1.11.3
       - name: Release
         uses: shoothzj/latest-release-action@v1
         with:
