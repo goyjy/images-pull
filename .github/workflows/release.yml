@@ -14,10 +14,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Save Docker Images
-        run: wget -c https://codeload.github.com/coredns/coredns/tar.gz/refs/tags/v1.11.3 -O coredns-1.11.3.tar.gz;ls -la;tar -zxf coredns-1.11.3.tar.gz;ls -la;cd coredns-1.11.3;make VERSION=1.11.3 DOCKER=registry.k8s.io/coredns -f Makefile.docker release docker-build 1>&2;docker images;docker save -o images-pull-coredns-amd64.tar.gz registry.k8s.io/coredns/coredns:v1.11.3
+        run: wget -c https://codeload.github.com/coredns/coredns/tar.gz/refs/tags/v1.11.3 -O coredns-1.11.3.tar.gz;ls -la;tar -zxf coredns-1.11.3.tar.gz;ls -la;cd coredns-1.11.3;make VERSION=1.11.3 DOCKER=registry.k8s.io/coredns -f Makefile.docker release docker-build 1>&2;docker images;docker save -o images-pull-coredns-all.tar.gz registry.k8s.io/coredns/coredns:amd64-1.11.3 registry.k8s.io/coredns/coredns:arm64-1.11.3
       - name: Release
         uses: shoothzj/latest-release-action@v1
         with:
           files: images-pull-coredns-amd64.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+ 
