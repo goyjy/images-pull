@@ -11,10 +11,10 @@ permissions: write-all
 jobs:
   push_to_registries:
     name: Push Docker image to multiple registries
-    runs-on: ubuntu-latest
+    runs-on: macos-14
     steps:
       - name: Save Docker Images
-        run: docker pull gcr.io/distroless/static-debian11:nonroot;docker save gcr.io/distroless/static-debian11:nonroot -o images-pull-coredns-base-amd64.tar.gz
+        run: brew cask install docker;docker pull gcr.io/distroless/static-debian11:nonroot;docker save gcr.io/distroless/static-debian11:nonroot -o images-pull-coredns-base-amd64.tar.gz
       - name: Release
         uses: shoothzj/latest-release-action@v1
         with:
