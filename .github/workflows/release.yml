@@ -18,7 +18,7 @@ jobs:
       - name: Release
         uses: shoothzj/latest-release-action@v1
         with:
-          files: images-pull-coredns-amd64.tar.gz
+          files: images-pull-coredns-all.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
  
